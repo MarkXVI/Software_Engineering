@@ -14,7 +14,7 @@ public class Client {
         Socket socket = null;
         ObjectOutputStream out = null;
         try {
-            socket = new Socket(InetAddress.getLocalHost(), PORT);
+            socket = new Socket("83.249.137.137", PORT); // Task2 : InetAddress.getLocalHost()
             out = new ObjectOutputStream(socket.getOutputStream());
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host.");
