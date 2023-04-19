@@ -1,0 +1,31 @@
+write me a 10 min long presentation
+slide 1: intro
+singleton design patterns by mark harvey
+slide 2: What is the Singleton Design Pattern?
+Definition: Singleton Design Pattern ensures that a class has only one instance and provides a global point of access to that instance.
+Usage: Ideal for situations where a single shared resource is needed, such as a database connection or a configuration manager.
+Benefits: Ensures controlled access to the single instance, reduces the potential for bugs, and improves performance by eliminating redundant object creation.
+slide 3: when to use
+Logging
+Configuration Management
+Database Connections
+Thread Pools
+slide 4: code example
+image 1 -> typical singleton class
+image 2 -> Database connection class as a singleton
+slide 5: sequence diagram
+slide 6: state diagram
+slide 7: class diagram
+slide 8: Potential Drawbacks
+Global State: Singleton can be considered an anti-pattern due to its global state, which can lead to issues when debugging.
+Scalability: Difficult to scale in a multi-threaded environment.
+Testing: Harder to unit test because of the hidden dependencies.
+slide 9: Best Practices
+Ensure thread-safety.
+Consider alternatives like dependency injection.
+Use the Singleton pattern judiciously and only when necessary.
+slide 10: conclusion
+Ensures a single instance of a class
+Provides a global point of access
+Useful for managing shared resources
+Be cautious of potential drawbacks and use responsibly
