@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         itemList.add("Door");
         itemList.add("Window");
 
-        mAdapter = new MyAdapter(itemList, mDatabase);
+        mAdapter = new MyAdapter(this, itemList, mDatabase);
         recyclerView.setAdapter(mAdapter);
 
         btnSpeechRecognition = findViewById(R.id.btn_speech_recognition);
@@ -100,24 +100,32 @@ public class MainActivity extends AppCompatActivity {
     private void handleCommand(String command) {
         Log.i("handleCommand", "In handleCommand");
         command = command.toLowerCase().trim();
-        if (command.contains("open door")) {
-            mDatabase.child("door").setValue("on");
-            Toast.makeText(this, "Opening door...", Toast.LENGTH_SHORT).show();
-        } else if (command.contains("close door")) {
-            mDatabase.child("door").setValue("off");
-            Toast.makeText(this, "Closing door...", Toast.LENGTH_SHORT).show();
-        } else if (command.contains("light on")) {
-            mDatabase.child("light").setValue("on");
-            Toast.makeText(this, "Turning light on...", Toast.LENGTH_SHORT).show();
-        } else if (command.contains("light off")) {
-            mDatabase.child("light").setValue("off");
-            Toast.makeText(this, "Turning light off...", Toast.LENGTH_SHORT).show();
-        } else if (command.contains("open window")) {
-            mDatabase.child("window").setValue("on");
-            Toast.makeText(this, "Opening window...", Toast.LENGTH_SHORT).show();
-        } else if (command.contains("close window")) {
-            mDatabase.child("window").setValue("off");
-            Toast.makeText(this, "Closing window...", Toast.LENGTH_SHORT).show();
+        if (command.contains("open")) {
+            if (command.contains("door")) {
+                mDatabase.child("door").setValue("open");
+                Toast.makeText(this, "Opening door...", Toast.LENGTH_SHORT).show();
+            } else if (command.contains("window")) {
+                mDatabase.child("window").setValue("open");
+                Toast.makeText(this, "Opening window...", Toast.LENGTH_SHORT).show();
+            }
+        } else if (command.contains("close")) {
+            if (command.contains("door")) {
+                mDatabase.child("door").setValue("closed");
+                Toast.makeText(this, "Closing door...", Toast.LENGTH_SHORT).show();
+            } else if (command.contains("window")) {
+                mDatabase.child("window").setValue("closed");
+                Toast.makeText(this, "Closing window...", Toast.LENGTH_SHORT).show();
+            }
+        } else if (command.contains("on")) {
+            if (command.contains("light")) {
+                mDatabase.child("light").setValue("on");
+                Toast.makeText(this, "Turning light on...", Toast.LENGTH_SHORT).show();
+            }
+        } else if (command.contains("off")) {
+            if (command.contains("light")) {
+                mDatabase.child("light").setValue("off");
+                Toast.makeText(this, "Turning light off...", Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(this, "Command not recognized. Please try again.", Toast.LENGTH_SHORT).show();
         }

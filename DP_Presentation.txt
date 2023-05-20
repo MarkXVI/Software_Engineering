@@ -8,7 +8,7 @@ Slide 3: When to Use
 Singleton Design Pattern is ideally suited for situations such as:
 
 Logging: Ensuring that log entries are organized and coherent by utilizing a single logging instance.
-Configuration Management: Streamlining access and updates to application configurations.
+Configuration Management: Streamlining access and updates to application configurations. settings, etc.
 Database Connections: Reducing overhead by sharing a single connection across the application.
 Thread Pools: Managing a fixed number of worker threads for efficient resource utilization.
 
